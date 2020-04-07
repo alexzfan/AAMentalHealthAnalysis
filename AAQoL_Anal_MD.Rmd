@@ -1,30 +1,44 @@
 ---
-title: "AAQoL_Anal_MD"
-author: "Alex Fan"
+title: "An Analysis of Asian-American Mental Health Stigma and Uptake"
+author: "Alex Fan and Wendy Lyu"
 date: "4/6/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r, echo = FALSE, warning = FALSE}
+library(readr)
+library(knitr)
+library(tidyverse)
 ```
 
-## Including Plots
+```{r, warning = FALSE}
+## set up space
+setwd("~/Documents/GitHub/AAMentalHealthAnalysis")
+rm(list = ls())
+## read the csv
+AAQoL <- read_csv("AAQoL.csv")
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+summary(AAQoL$`Therapist/Counselor`)
+table(AAQoL$Psychiatrist)
+table(AAQoL$`Therapist/Counselor`)
+table(AAQoL$Disappointment)
+table(AAQoL$Shame)
+table(AAQoL$Weakness)
+table(AAQoL$Treatment)
+table(AAQoL$Counseling)
+table(AAQoL$Discrimination)
+
+prop.table(table(AAQoL$Discrimination, AAQoL$Counseling))
+```
+
+
