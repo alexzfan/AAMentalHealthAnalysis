@@ -1,6 +1,9 @@
 library(readr)
 
-setwd("~/Desktop/Emory Compiled/Emory Y3-S2/QTM490")
-AAQoL <- read_csv("AAQOL_Survey_Monkey_Answers_Nov7_Update.csv")
+setwd("~/Documents/GitHub/AAMentalHealthAnalysis")
+rm(list = ls())
+
+AAQoL <- read_csv("AAQoL.csv")
 
 summary(AAQoL)
+
