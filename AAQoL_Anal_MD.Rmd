@@ -30,7 +30,8 @@ rm(list = ls())
 AAQoL <- read_csv("AAQoL.csv")
 
 df <- AAQoL %>%
-  
+  select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, Treatment, Counseling,
+         Age, Gender, Ethnicity, `Marital Status`, `Education Completed`, `US Born`, Income)
 
 ```
 
