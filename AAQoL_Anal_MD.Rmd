@@ -15,12 +15,22 @@ library(knitr)
 library(tidyverse)
 ```
 
+# Introduction
+
+This project is meant to find insight in the area of Asian-American mental health issues, specifically trying to find a relationship between discrimination mental health stigma as well as overall perception of their quality of life. While some prior research has been conducted, our project attempts to use more current data, which is important especially as social movements have brought these issues further out into the open, thus allowing more holistic data collection.
+
+# Data Selection and Cleaning
+
+For our purposes, we are only selecting a few variables that are important for our theory
 ```{r, warning = FALSE}
 ## set up space
 setwd("~/Documents/GitHub/AAMentalHealthAnalysis")
 rm(list = ls())
 ## read the csv
 AAQoL <- read_csv("AAQoL.csv")
+
+df <- AAQoL %>%
+  
 
 ```
 
