@@ -21,6 +21,8 @@ This project is meant to find insight in the area of Asian-American mental healt
 
 # Data Selection and Cleaning
 
+![relevant caption here](Meme.jpg)
+
 For our purposes, we are only selecting a few variables that are important for our theory. Our theory is that, given increasing levels of discrimination, people become less likely to  
 ```{r, warning = FALSE}
 ## set up space
@@ -38,18 +40,21 @@ df <- AAQoL %>%
 
 
 
-
+We first find that theres no variation in psychiatrist and therapist/counselor usage within the sample. Our prior is that 
 ```{r}
-table(AAQoL$Psychiatrist)
-table(AAQoL$`Therapist/Counselor`)
-table(AAQoL$Disappointment)
-table(AAQoL$Shame)
-table(AAQoL$Weakness)
-table(AAQoL$Treatment)
-table(AAQoL$Counseling)
-table(AAQoL$Discrimination)
+# Do some exploratory analysis first
+table(df$Psychiatrist)
+table(df$`Therapist/Counselor`)
 
-prop.table(table(AAQoL$Discrimination, AAQoL$Counseling))
+
+table(df$Disappointment)
+table(df$Shame)
+table(df$Weakness)
+table(df$Treatment)
+table(df$Counseling)
+table(df$Discrimination)
+
+prop.table(table(AAQoL$Discrimination, AAQoL$Counseling), margin = 2)
 ```
 
 
