@@ -32,8 +32,9 @@ AAQoL <- read_csv("AAQoL.csv")
 
 ## selects the variables to use
 df <- AAQoL %>%
-  select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, Treatment, Counseling,
-         Age, Gender, Ethnicity, `Marital Status`, `Education Completed`, `US Born`, Income)
+  select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, 
+         Treatment, Counseling, Age, Gender, Ethnicity, `Marital Status`, 
+         `Education Completed`, `US Born`, Income)
 
 df$Disappointment<-ifelse(df$Disappointment=='Yes', 1,0)
 df$Shame<-ifelse(df$Shame=='Yes', 1,0)
@@ -47,21 +48,25 @@ df
 
 
 
-We first find that theres no variation in psychiatrist and therapist/counselor usage within the sample. Our prior is that 
+We first find that theres no variation in psychiatrist and therapist/counselor usage within the sample. There's two possible reasons why this may be the case. First, is that there may simply be no one in the sample that used these services (this is of course a small sample size and the wording of the survey question specified within the last year). Second, and the more likely reason, is that the people who would go to these services are not reporting it due to stigma surrounding mental health. 
 ```{r}
 # Do some exploratory analysis first
 table(df$Psychiatrist)
 table(df$`Therapist/Counselor`)
+```
 
+The second reason seems more likely for two reasons. First, after running a few chi-square tests, which tell us whether there is an association between variables, we note that there is a statistical significance between feeling shame about depression and receiving treatment for 
+```{r}
+chisq.test(table(df$Shame, df$Treatment))
+chisq.test(table(df$Disappointment, df$Treatment))
 
-table(df$Disappointment)
 table(df$Shame)
 table(df$Weakness)
 table(df$Treatment)
 table(df$Counseling)
 table(df$Discrimination)
 
-prop.table(table(AAQoL$Discrimination, AAQoL$Counseling), margin = 2)
+prop.table(table(df$Shame, df$Counseling), margin = 1)
 ```
 
 
