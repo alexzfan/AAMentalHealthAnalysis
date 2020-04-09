@@ -35,8 +35,12 @@ df <- AAQoL %>%
   select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, Treatment, Counseling,
          Age, Gender, Ethnicity, `Marital Status`, `Education Completed`, `US Born`, Income)
 
-df$`US Born`<-ifelse(df$`US Born`=='Yes', 1,0)
+df$Disappointment<-ifelse(df$Disappointment=='Yes', 1,0)
+df$Shame<-ifelse(df$Shame=='Yes', 1,0)
 df$Counseling<-ifelse(df$Counseling=='Yes', 1,0)
+df$Weakness<-ifelse(df$Weakness=='Yes', 1,0)
+df$Treatment<-ifelse(df$Treatment=='Yes', 1,0)
+df$`US Born`<-ifelse(df$`US Born`=='Yes', 1,0)
 
 df
 ```
