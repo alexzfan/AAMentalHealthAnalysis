@@ -1,0 +1,55 @@
+---
+title: "An Analysis of Asian-American Mental Health Stigma and Uptake"
+author: "Alex Fan and Wendy Lyu"
+date: "4/6/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r, echo = FALSE, warning = FALSE}
+library(readr)
+library(knitr)
+library(tidyverse)
+```
+
+# Introduction
+
+This project is meant to find insight in the area of Asian-American mental health issues, specifically trying to find a relationship between discrimination mental health stigma as well as overall perception of their quality of life. While some prior research has been conducted, our project attempts to use more current data, which is important especially as social movements have brought these issues further out into the open, thus allowing more holistic data collection.
+
+# Data Selection and Cleaning
+
+For our purposes, we are only selecting a few variables that are important for our theory. Our theory is that, given increasing levels of discrimination, people become less likely to  
+```{r, warning = FALSE}
+## set up space
+setwd("~/Documents/GitHub/AAMentalHealthAnalysis")
+rm(list = ls())
+## read the csv
+AAQoL <- read_csv("AAQoL.csv")
+
+## selects the variables to use
+df <- AAQoL %>%
+  select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, Treatment, Counseling,
+         Age, Gender, Ethnicity, `Marital Status`, `Education Completed`, `US Born`, Income)
+
+```
+
+
+
+
+```{r}
+table(AAQoL$Psychiatrist)
+table(AAQoL$`Therapist/Counselor`)
+table(AAQoL$Disappointment)
+table(AAQoL$Shame)
+table(AAQoL$Weakness)
+table(AAQoL$Treatment)
+table(AAQoL$Counseling)
+table(AAQoL$Discrimination)
+
+prop.table(table(AAQoL$Discrimination, AAQoL$Counseling))
+```
+
+
