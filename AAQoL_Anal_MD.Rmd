@@ -24,7 +24,6 @@ This project is meant to find insight in the area of Asian-American mental healt
 For our purposes, we are only selecting a few variables that are important for our theory. Our theory is that, given increasing levels of discrimination, people become less likely to  
 ```{r, warning = FALSE}
 ## set up space
-setwd("~/Documents/GitHub/AAMentalHealthAnalysis")
 rm(list = ls())
 ## read the csv
 AAQoL <- read_csv("AAQoL.csv")
@@ -34,6 +33,10 @@ df <- AAQoL %>%
   select(Discrimination, `Therapist/Counselor`, Psychiatrist, Disappointment, Shame, Weakness, Treatment, Counseling,
          Age, Gender, Ethnicity, `Marital Status`, `Education Completed`, `US Born`, Income)
 
+df$`US Born`<-ifelse(df$`US Born`=='Yes', 1,0)
+df$Counseling<-ifelse(df$Counseling=='Yes', 1,0)
+
+df
 ```
 
 
