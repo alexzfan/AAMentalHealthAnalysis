@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 library(readr)
 library(knitr)
 library(tidyverse)
+library(stargazer)
 ```
 
 # Introduction
@@ -81,15 +82,190 @@ library(mfx)
 
 probit.1 <- glm(Disappointment ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
     family = binomial(link = "probit"), data = df)
+probit.2 <- glm(Shame ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
+    data = df)
+probit.3 <- glm(Weakness ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
+    data = df)
+probit.4 <- glm(Counseling ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
+    data = df)
+probit.5 <- glm(Treatment ~Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
+    data = df)
 
-
-summary(probit.1)
+summary(probit.5)
 probitmfx(Disappointment ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
     data = df)
 probitmfx(Shame ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
     data = df)
 probitmfx(Weakness ~ Discrimination + Age + Gender + Ethnicity + `Education Completed` + `US Born` + Income, 
     data = df)
+```
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Apr 20, 2020 - 17:51:18
+\begin{table}[!htbp] \centering 
+  \caption{Effect of Discrimination on Feelings of Disappointment} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Disappointment \\ 
+\hline \\[-1.8ex] 
+ Discrimination & 0.231$^{***}$ \\ 
+  & (0.070) \\ 
+  & \\ 
+ Age & 0.005$^{**}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ Male & 0.067 \\ 
+  & (0.067) \\ 
+  & \\ 
+ Chinese & $-$0.139 \\ 
+  & (0.098) \\ 
+  & \\ 
+ Filipino & $-$0.460$^{***}$ \\ 
+  & (0.142) \\ 
+  & \\ 
+ Korean & 0.005 \\ 
+  & (0.103) \\ 
+  & \\ 
+ Other Ethnicity & $-$0.015 \\ 
+  & (0.153) \\ 
+  & \\ 
+ Vietnamese & $-$0.172 \\ 
+  & (0.110) \\ 
+  & \\ 
+ `Education Completed` & $-$0.005 \\ 
+  & (0.016) \\ 
+  & \\ 
+ `US Born` & 0.071 \\ 
+  & (0.118) \\ 
+  & \\ 
+ Constant & $-$0.895$^{***}$ \\ 
+  & (0.291) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 2,046 \\ 
+Log Likelihood & $-$965.418 \\ 
+Akaike Inf. Crit. & 1,966.836 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Apr 20, 2020 - 18:00:07
+\begin{table}[!htbp] \centering 
+  \caption{Effect of Discrimination on Feelings of Shame} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Shame \\ 
+\hline \\[-1.8ex] 
+ Discrimination & 0.017 \\ 
+  & (0.014) \\ 
+  & \\ 
+ Age & 0.002$^{***}$ \\ 
+  & (0.0004) \\ 
+  & \\ 
+ Male & 0.006 \\ 
+  & (0.013) \\ 
+  & \\ 
+ Chinese & $-$0.115$^{***}$ \\ 
+  & (0.019) \\ 
+  & \\ 
+ Filipino & $-$0.067$^{***}$ \\ 
+  & (0.025) \\ 
+  & \\ 
+ Korean & $-$0.066$^{***}$ \\ 
+  & (0.020) \\ 
+  & \\ 
+ Other Ethnicity & 0.007 \\ 
+  & (0.030) \\ 
+  & \\ 
+ Vietnamese & $-$0.086$^{***}$ \\ 
+  & (0.021) \\ 
+  & \\ 
+ `Education Completed` & $-$0.005 \\ 
+  & (0.003) \\ 
+  & \\ 
+ `US Born` & 0.022 \\ 
+  & (0.023) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 2,052 \\ 
+Log Likelihood & $-$304.615 \\ 
+Akaike Inf. Crit. & 645.230 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Apr 20, 2020 - 18:03:17
+\begin{table}[!htbp] \centering 
+  \caption{Effect of Discrimination on Feelings of Weakness} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Weakness \\ 
+\hline \\[-1.8ex] 
+ Discrimination & 0.007 \\ 
+  & (0.023) \\ 
+  & \\ 
+ Age & 0.004$^{***}$ \\ 
+  & (0.001) \\ 
+  & \\ 
+ Male & 0.047$^{**}$ \\ 
+  & (0.021) \\ 
+  & \\ 
+ Chinese & $-$0.116$^{***}$ \\ 
+  & (0.032) \\ 
+  & \\ 
+ Filipino & $-$0.121$^{***}$ \\ 
+  & (0.041) \\ 
+  & \\ 
+ Korean & $-$0.042 \\ 
+  & (0.034) \\ 
+  & \\ 
+ Other Ethnicity & $-$0.109$^{**}$ \\ 
+  & (0.051) \\ 
+  & \\ 
+ Vietnamese & $-$0.160$^{***}$ \\ 
+  & (0.036) \\ 
+  & \\ 
+ `Education Completed` & $-$0.011$^{**}$ \\ 
+  & (0.005) \\ 
+  & \\ 
+ `US Born` & $-$0.108$^{***}$ \\ 
+  & (0.038) \\ 
+  & \\ 
+ Constant & 0.506$^{***}$ \\ 
+  & (0.095) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 2,054 \\ 
+Log Likelihood & $-$1,357.333 \\ 
+Akaike Inf. Crit. & 2,750.666 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+```{r, echo = FALSE, eval = FALSE}
+stargazer(probit.1)
+stargazer(probit.2)
+stargazer(probit.3)
 ```
 
 
